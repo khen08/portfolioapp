@@ -102,70 +102,72 @@ export function TechStack() {
   };
 
   return (
-    <SnapSection>
-      <div className="w-full min-h-screen flex flex-col items-center justify-center text-center space-y-4 overflow-hidden px-4">
-        <TextEffect
-          as="h2"
-          per="char"
-          className="text-2xl md:text-4xl lg:text-5xl font-bold dark:text-white my-10"
-        >
-          My Tech Stack
-        </TextEffect>
-        <MaxWidthWrapper>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {techStackCards.map((card, index) => (
-              <motion.div
-                key={index}
-                className="relative w-full h-[30vh] md:h-[25vh] lg:h-[20vh] flex items-center justify-center"
-                onClick={() => handleFlip(index)}
-                style={{ perspective: "1000px" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true, amount: 0.2 }}
-              >
-                {/* Front Side */}
+    <div className="bg-gray-50">
+      <SnapSection>
+        <div className="w-full min-h-screen flex flex-col items-center justify-center text-center space-y-4 overflow-hidden px-4">
+          <TextEffect
+            as="h2"
+            per="char"
+            className="text-2xl md:text-4xl lg:text-5xl font-bold dark:text-white my-10"
+          >
+            My Tech Stack
+          </TextEffect>
+          <MaxWidthWrapper>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {techStackCards.map((card, index) => (
                 <motion.div
-                  className={`absolute inset-0 flex flex-col items-center justify-center p-2 lg:p-4 rounded-lg shadow-lg cursor-pointer border border-transparent hover:border-indigo-500 transition-colors ${
-                    flipped[index]
-                      ? "bg-indigo-500 text-white"
-                      : "bg-white dark:bg-gray-800"
-                  }`}
-                  animate={{ rotateY: flipped[index] ? 180 : 0 }}
-                  transition={{ duration: 0.4 }}
-                  style={{
-                    backfaceVisibility: "hidden",
-                    transformStyle: "preserve-3d",
-                  }}
+                  key={index}
+                  className="relative w-full h-[30vh] md:h-[25vh] lg:h-[20vh] flex items-center justify-center"
+                  onClick={() => handleFlip(index)}
+                  style={{ perspective: "1000px" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: false, amount: 0.2 }}
                 >
-                  {card.icon}
-                  <p className="mt-2 lg:mt-4 text-base md:text-lg lg:text-xl font-medium">
-                    {card.title}
-                  </p>
+                  {/* Front Side */}
+                  <motion.div
+                    className={`absolute inset-0 flex flex-col items-center justify-center p-2 lg:p-4 rounded-lg shadow-lg cursor-pointer border border-transparent hover:border-indigo-500 transition-colors ${
+                      flipped[index]
+                        ? "bg-indigo-500 text-white"
+                        : "bg-white dark:bg-gray-800"
+                    }`}
+                    animate={{ rotateY: flipped[index] ? 180 : 0 }}
+                    transition={{ duration: 0.4 }}
+                    style={{
+                      backfaceVisibility: "hidden",
+                      transformStyle: "preserve-3d",
+                    }}
+                  >
+                    {card.icon}
+                    <p className="mt-2 lg:mt-4 text-base md:text-lg lg:text-xl font-medium">
+                      {card.title}
+                    </p>
+                  </motion.div>
+                  {/* Back Side */}
+                  <motion.div
+                    className={`absolute inset-0 flex flex-col items-center justify-center p-2 lg:p-4 rounded-lg shadow-lg cursor-pointer border border-transparent hover:border-indigo-500 transition-colors ${
+                      flipped[index]
+                        ? "bg-white dark:bg-gray-800 text-black dark:text-white"
+                        : "bg-indigo-500 text-white"
+                    }`}
+                    animate={{ rotateY: flipped[index] ? 0 : -180 }}
+                    transition={{ duration: 0.4 }}
+                    style={{
+                      backfaceVisibility: "hidden",
+                      transformStyle: "preserve-3d",
+                    }}
+                  >
+                    <p className="text-sm md:text-base lg:text-lg">
+                      {card.description}
+                    </p>
+                  </motion.div>
                 </motion.div>
-                {/* Back Side */}
-                <motion.div
-                  className={`absolute inset-0 flex flex-col items-center justify-center p-2 lg:p-4 rounded-lg shadow-lg cursor-pointer border border-transparent hover:border-indigo-500 transition-colors ${
-                    flipped[index]
-                      ? "bg-white dark:bg-gray-800 text-black dark:text-white"
-                      : "bg-indigo-500 text-white"
-                  }`}
-                  animate={{ rotateY: flipped[index] ? 0 : -180 }}
-                  transition={{ duration: 0.4 }}
-                  style={{
-                    backfaceVisibility: "hidden",
-                    transformStyle: "preserve-3d",
-                  }}
-                >
-                  <p className="text-sm md:text-base lg:text-lg">
-                    {card.description}
-                  </p>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </MaxWidthWrapper>
-      </div>
-    </SnapSection>
+              ))}
+            </div>
+          </MaxWidthWrapper>
+        </div>
+      </SnapSection>
+    </div>
   );
 }
