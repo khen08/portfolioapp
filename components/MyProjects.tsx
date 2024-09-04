@@ -26,6 +26,8 @@ export function MyProjects() {
         <Image
           src="/images/nekopedia-mobile.png"
           alt="Nekopedia Mobile"
+          width={500}
+          height={300}
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
         />
       ),
@@ -39,6 +41,8 @@ export function MyProjects() {
         <Image
           src="/images/nekopedia-web.png"
           alt="Nekopedia Web"
+          width={500}
+          height={300}
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
         />
       ),
@@ -52,6 +56,8 @@ export function MyProjects() {
         <Image
           src="/images/ticket-app.png"
           alt="Ticket App"
+          width={500}
+          height={300}
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
         />
       ),
@@ -65,6 +71,8 @@ export function MyProjects() {
         <Image
           src="/images/car-rental.png"
           alt="Car Rental and LTO Form"
+          width={500}
+          height={300}
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
         />
       ),
@@ -78,6 +86,8 @@ export function MyProjects() {
         <Image
           src="/images/doctrack-app.png"
           alt="DocTrack App"
+          width={500}
+          height={300}
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
         />
       ),
@@ -91,6 +101,8 @@ export function MyProjects() {
         <Image
           src="/images/inked-shell.png"
           alt="Inked Shell"
+          width={500}
+          height={300}
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
         />
       ),
@@ -104,6 +116,8 @@ export function MyProjects() {
         <Image
           src="/images/ndc-ticket-app.png"
           alt="NDC Ticket App"
+          width={500}
+          height={300}
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
         />
       ),

@@ -104,6 +104,8 @@ export function GithubAvatar() {
         <Image
           src={profileData?.avatar_url || ""}
           alt={profileData?.name || "GitHub User"}
+          width={500}
+          height={300}
           className="h-48 w-full rounded-lg object-cover mb-4"
         />
       </AnimatedWrapper>
