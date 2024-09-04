@@ -1,9 +1,8 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import { IconBrandLinkedin } from "@tabler/icons-react";
 import { TextEffect } from "./TextEffect";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
-import { AnimatedWrapper } from "./AnimatedWrapper"; // Ensure the path is correct
+import { AnimatedWrapper } from "./AnimatedWrapper";
 
 export function GithubAvatar() {
   const [profileData, setProfileData] = useState<{
@@ -20,7 +19,6 @@ export function GithubAvatar() {
   const [error, setError] = useState<string | null>(null);
 
   const githubUsername = "khen08";
-  const githubToken = process.env.NEXT_PUBLIC_GITHUB_TOKEN || "";
 
   useEffect(() => {
     const fetchGitHubData = async () => {
@@ -49,7 +47,7 @@ export function GithubAvatar() {
         const graphqlResponse = await fetch("https://api.github.com/graphql", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${githubToken}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ query }),
@@ -78,7 +76,6 @@ export function GithubAvatar() {
           publicRepos: userData.repositories.totalCount,
         });
       } catch (error) {
-        // Check if the error is an instance of Error
         if (error instanceof Error) {
           setError(error.message);
         } else {
@@ -102,7 +99,7 @@ export function GithubAvatar() {
 
   return (
     <div className="p-6">
-      <AnimatedWrapper type="fadeInUp">
+      <AnimatedWrapper animationType="fadeInUp">
         <img
           src={profileData?.avatar_url || ""}
           alt={profileData?.name || "GitHub User"}
@@ -110,7 +107,7 @@ export function GithubAvatar() {
         />
       </AnimatedWrapper>
 
-      <AnimatedWrapper type="fadeInUp">
+      <AnimatedWrapper animationType="fadeInUp">
         <p className="text-zinc-500 dark:text-zinc-400 mb-1">
           <span className="font-bold">{profileData?.login}</span> |{" "}
           <a
@@ -124,14 +121,14 @@ export function GithubAvatar() {
         </p>
       </AnimatedWrapper>
 
-      <AnimatedWrapper type="fadeInUp">
+      <AnimatedWrapper animationType="fadeInUp">
         <p className="mt-4 text-zinc-500">
           <span className="font-bold">Bio: </span>
           <TextEffect per="word">{profileData?.bio}</TextEffect>
         </p>
       </AnimatedWrapper>
 
-      <AnimatedWrapper type="fadeInUp">
+      <AnimatedWrapper animationType="fadeInUp">
         <p className="my-2 text-zinc-500 dark:text-zinc-500">
           <span className="font-bold">Contributions: </span>
           <AnimatedNumber
@@ -145,7 +142,7 @@ export function GithubAvatar() {
         </p>
       </AnimatedWrapper>
 
-      <AnimatedWrapper type="fadeInUp">
+      <AnimatedWrapper animationType="fadeInUp">
         <p className="my-2 text-zinc-500">
           <span className="font-bold">Public Repositories: </span>
           <AnimatedNumber
@@ -159,7 +156,7 @@ export function GithubAvatar() {
         </p>
       </AnimatedWrapper>
 
-      <AnimatedWrapper type="fadeInUp">
+      <AnimatedWrapper animationType="fadeInUp">
         <p className="text-zinc-500 flex">
           <IconBrandLinkedin />:{" "}
           <a

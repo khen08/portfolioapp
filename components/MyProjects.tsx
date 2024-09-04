@@ -10,13 +10,16 @@ import {
   IconTicketOff,
 } from "@tabler/icons-react";
 import { SnapSection } from "./SnapSection";
+import { AnimatedWrapper } from "./AnimatedWrapper";
+import DotPattern from "./magicui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 export function MyProjects() {
   const githubLink = "https://github.com/khen08";
   const projects = [
     {
       title: "Nekopedia Mobile",
-      description: "A mobile app for managing Neko-related content.",
+      description: "A mobile app for cat wikipedia.",
       repository: "nekopedia-mobile",
       header: (
         <img
@@ -42,7 +45,7 @@ export function MyProjects() {
     },
     {
       title: "Ticket App",
-      description: "An app for managing event tickets.",
+      description: "An app for managing support tickets.",
       repository: "ticketapp",
       header: (
         <img
@@ -55,7 +58,7 @@ export function MyProjects() {
     },
     {
       title: "Car Rental and LTO Form",
-      description: "A system for car rentals and LTO forms.",
+      description: "A system for car rentals and driver's license application.",
       repository: "car-rental-and-lto-form",
       header: (
         <img
@@ -81,7 +84,7 @@ export function MyProjects() {
     },
     {
       title: "Inked Shell",
-      description: "A creative platform for digital artists.",
+      description: "An e-commerce website for custom iPhone cases.",
       repository: "inkedshell",
       header: (
         <img
@@ -94,7 +97,7 @@ export function MyProjects() {
     },
     {
       title: "NDC Ticket App",
-      description: "A ticketing system for managing events.",
+      description: "A ticketing system for NDC IT Department.",
       repository: "ndcticketapp",
       header: (
         <img
@@ -108,23 +111,35 @@ export function MyProjects() {
   ];
 
   return (
-    <div className="bg-gray-50">
+    <div className="relative bg-gray-50">
+      <DotPattern
+        className={cn(
+          "absolute inset-0 z-0",
+          "[mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]"
+        )}
+      />
       <SnapSection>
-        <BentoGrid className="max-w-5xl mx-auto">
-          {projects.map((project, i) => (
-            <BentoGridItem
-              key={i}
-              title={project.title}
-              description={`${project.description}\n${githubLink}/${project.repository}`}
-              repositoryLink={`${githubLink}/${project.repository}`}
-              icon={project.icon}
-              header={project.header}
-              className={
-                i === 3 || i === 6 ? "md:col-span-2 bg-zinc-200" : "bg-zinc-200"
-              }
-            />
-          ))}
-        </BentoGrid>
+        <div className="relative z-10">
+          <AnimatedWrapper animationType="slideIn">
+            <BentoGrid className="max-w-5xl mx-auto">
+              {projects.map((project, i) => (
+                <BentoGridItem
+                  key={i}
+                  title={project.title}
+                  description={`${project.description}\n${githubLink}/${project.repository}`}
+                  repositoryLink={`${githubLink}/${project.repository}`}
+                  icon={project.icon}
+                  header={project.header}
+                  className={
+                    i === 3 || i === 6
+                      ? "md:col-span-2 bg-zinc-200"
+                      : "bg-zinc-200"
+                  }
+                />
+              ))}
+            </BentoGrid>
+          </AnimatedWrapper>
+        </div>
       </SnapSection>
     </div>
   );

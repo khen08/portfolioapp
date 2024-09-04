@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 
 type AnimatedWrapperProps = {
   children: React.ReactNode;
-  type?:
+  animationType?:
     | "scale"
     | "rotate"
     | "spinScale"
@@ -12,9 +12,8 @@ type AnimatedWrapperProps = {
     | "slide"
     | "bounce"
     | "fadeInUp"
-    | "slideIn"
-    | "tiltOnHover"
-    | "shakeOnHover";
+    | "slideIn";
+  hoverType?: "tiltOnHover" | "shakeOnHover";
   className?: string;
 };
 
@@ -118,7 +117,6 @@ const slideInVariants: Variants = {
 const tiltOnHoverVariants: Variants = {
   hidden: { scale: 1, rotate: 0 },
   hover: {
-    opacity: 1,
     scale: 1.05,
     rotate: -10,
     transition: {
@@ -144,7 +142,8 @@ const shakeOnHoverVariants: Variants = {
 
 export const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
   children,
-  type = "spinScale",
+  animationType = "spinScale",
+  hoverType,
   className,
 }) => {
   const ref = useRef(null);
@@ -155,7 +154,7 @@ export const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
     setIsInView(inView);
   }, [inView]);
 
-  const variants =
+  const animationVariants =
     {
       scale: scaleVariants,
       rotate: rotateVariants,
@@ -165,19 +164,22 @@ export const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({
       bounce: bounceVariants,
       fadeInUp: fadeInUpVariants,
       slideIn: slideInVariants,
-      tiltOnHover: tiltOnHoverVariants,
-      shakeOnHover: shakeOnHoverVariants,
-    }[type] || spinScaleVariants;
+    }[animationType] || spinScaleVariants;
+
+  const hoverVariants =
+    hoverType === "tiltOnHover"
+      ? tiltOnHoverVariants
+      : hoverType === "shakeOnHover"
+      ? shakeOnHoverVariants
+      : {};
 
   return (
     <motion.div
       ref={ref}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      variants={variants}
-      whileHover={
-        type === "tiltOnHover" || type === "shakeOnHover" ? "hover" : undefined
-      }
+      variants={animationVariants}
+      whileHover={hoverVariants.hover as any}
       className={className}
     >
       {children}

@@ -18,6 +18,8 @@ import {
   IconBrandMysql,
 } from "@tabler/icons-react";
 import { TextEffect } from "./TextEffect";
+import DotPattern from "@/components/magicui/dot-pattern";
+import { cn } from "@/lib/utils";
 
 export function TechStack() {
   const techStackCards = [
@@ -102,9 +104,15 @@ export function TechStack() {
   };
 
   return (
-    <div className="bg-gray-50">
+    <div className="relative bg-gray-50">
+      <DotPattern
+        className={cn(
+          "absolute inset-0 z-0",
+          "[mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]"
+        )}
+      />
       <SnapSection>
-        <div className="w-full min-h-screen flex flex-col items-center justify-center text-center space-y-4 overflow-hidden px-4">
+        <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center text-center space-y-4 overflow-hidden px-4">
           <TextEffect
             as="h2"
             per="char"

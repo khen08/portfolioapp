@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { GithubAvatar } from "./GithubAvatar";
+import { PersonalDetails } from "./PersonalDetails";
 
 interface Sections {
   title: string;
@@ -21,9 +22,10 @@ export const SectionLabel = ({ data }: { data: Sections[] }) => {
                 <div className="h-10 w-10 absolute left-3 md:left-3 rounded-full bg-white dark:bg-black flex items-center justify-center">
                   <div className="hidden md:block h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
                 </div>
-                <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-neutral-500 dark:text-neutral-500 mb-12">
+                <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-neutral-500 dark:text-neutral-500 mb-8">
                   {item.title}
                 </h3>
+                {index === 0 && <PersonalDetails />}
                 {index === 2 && <GithubAvatar />}
               </div>
             </div>

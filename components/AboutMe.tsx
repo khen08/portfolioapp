@@ -7,23 +7,26 @@ import { TextEffect } from "./TextEffect";
 import { Highlight } from "@/components/ui/hero-highlight";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { SnapSection } from "./SnapSection";
+import { AnimatedWrapper } from "./AnimatedWrapper";
 
 export function AboutMe() {
   return (
     <SnapSection>
       <div className="relative flex flex-col gap-6 items-center justify-center px-4 md:px-8">
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
           viewport={{ once: true, amount: 1 }}
-        >
+        > */}
+        <AnimatedWrapper animationType="scale" hoverType="tiltOnHover">
           <Avatar>
             <AvatarImage src="/khen.jpeg" alt="khen's avatar" />
             <AvatarFallback>K</AvatarFallback>
           </Avatar>
-        </motion.div>
+        </AnimatedWrapper>
+        {/* </motion.div> */}
         <TextEffect
           per="char"
           className="text-2xl md:text-5xl font-bold dark:text-white text-center"

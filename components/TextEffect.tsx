@@ -66,7 +66,7 @@ const presetVariants: Record<
   slide: {
     container: defaultContainerVariants,
     item: {
-      hidden: { opacity: 0, y: 100 },
+      hidden: { opacity: 0, y: 50 },
       visible: { opacity: 1, y: 0 },
     },
   },
