@@ -3,6 +3,7 @@ import { IconBrandLinkedin } from "@tabler/icons-react";
 import { TextEffect } from "./TextEffect";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { AnimatedWrapper } from "./AnimatedWrapper";
+import Image from "next/image";
 
 export function GithubAvatar() {
   const [profileData, setProfileData] = useState<{
@@ -100,7 +101,7 @@ export function GithubAvatar() {
   return (
     <div className="p-6">
       <AnimatedWrapper animationType="fadeInUp">
-        <img
+        <Image
           src={profileData?.avatar_url || ""}
           alt={profileData?.name || "GitHub User"}
           className="h-48 w-full rounded-lg object-cover mb-4"

@@ -13,6 +13,7 @@ import { SnapSection } from "./SnapSection";
 import { AnimatedWrapper } from "./AnimatedWrapper";
 import DotPattern from "./magicui/dot-pattern";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function MyProjects() {
   const githubLink = "https://github.com/khen08";
@@ -22,7 +23,7 @@ export function MyProjects() {
       description: "A mobile app for cat wikipedia.",
       repository: "nekopedia-mobile",
       header: (
-        <img
+        <Image
           src="/images/nekopedia-mobile.png"
           alt="Nekopedia Mobile"
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
@@ -35,7 +36,7 @@ export function MyProjects() {
       description: "A web platform for Neko enthusiasts.",
       repository: "nekopedia-web",
       header: (
-        <img
+        <Image
           src="/images/nekopedia-web.png"
           alt="Nekopedia Web"
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
@@ -48,7 +49,7 @@ export function MyProjects() {
       description: "An app for managing support tickets.",
       repository: "ticketapp",
       header: (
-        <img
+        <Image
           src="/images/ticket-app.png"
           alt="Ticket App"
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
@@ -61,7 +62,7 @@ export function MyProjects() {
       description: "A system for car rentals and driver's license application.",
       repository: "car-rental-and-lto-form",
       header: (
-        <img
+        <Image
           src="/images/car-rental.png"
           alt="Car Rental and LTO Form"
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
@@ -74,7 +75,7 @@ export function MyProjects() {
       description: "A document tracking system.",
       repository: "doctrackapp",
       header: (
-        <img
+        <Image
           src="/images/doctrack-app.png"
           alt="DocTrack App"
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
@@ -87,7 +88,7 @@ export function MyProjects() {
       description: "An e-commerce website for custom iPhone cases.",
       repository: "inkedshell",
       header: (
-        <img
+        <Image
           src="/images/inked-shell.png"
           alt="Inked Shell"
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
@@ -100,7 +101,7 @@ export function MyProjects() {
       description: "A ticketing system for NDC IT Department.",
       repository: "ndcticketapp",
       header: (
-        <img
+        <Image
           src="/images/ndc-ticket-app.png"
           alt="NDC Ticket App"
           className="flex flex-1 object-cover w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100"
