@@ -43,13 +43,13 @@ export function AboutMe() {
               ease: "easeInOut",
             }}
             viewport={{ once: false, amount: 1 }}
-            className="relative flex flex-col gap-6 items-center justify-center px-4 md:px-8"
+            className="relative flex flex-col gap-6 items-center justify-center px-4 md:px-6"
           >
             <TextEffect
               as="div"
               per="word"
               preset="slide"
-              className="tracking-tight font-extralight text-base md:text-2xl dark:text-neutral-200 py-4 text-center leading-relaxed md:leading-snug"
+              className="tracking-tight font-extralight text-base md:text-2xl dark:text-neutral-200 py-2 text-center leading-relaxed md:leading-snug"
             >
               I&apos;m a Computer Engineering student and web developer,
               passionate about creating{" "}

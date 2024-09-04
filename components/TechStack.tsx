@@ -112,20 +112,20 @@ export function TechStack() {
         )}
       />
       <SnapSection>
-        <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center text-center space-y-4 overflow-hidden px-4">
+        <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center pb-12 text-center space-y-4 overflow-hidden px-4">
           <TextEffect
             as="h2"
             per="char"
-            className="text-2xl md:text-4xl lg:text-5xl font-bold dark:text-white my-10"
+            className="text-xl md:text-2xl lg:text-3xl font-bold dark:text-white my-3"
           >
             My Tech Stack
           </TextEffect>
           <MaxWidthWrapper>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4">
               {techStackCards.map((card, index) => (
                 <motion.div
                   key={index}
-                  className="relative w-full h-[30vh] md:h-[25vh] lg:h-[20vh] flex items-center justify-center"
+                  className="relative w-full h-[18vh] md:h-[15vh] lg:h-[20vh] flex items-center justify-center"
                   onClick={() => handleFlip(index)}
                   style={{ perspective: "1000px" }}
                   initial={{ opacity: 0, y: 20 }}
@@ -135,7 +135,7 @@ export function TechStack() {
                 >
                   {/* Front Side */}
                   <motion.div
-                    className={`absolute inset-0 flex flex-col items-center justify-center p-2 lg:p-4 rounded-lg shadow-lg cursor-pointer border border-transparent hover:border-indigo-500 transition-colors ${
+                    className={`absolute inset-0 flex flex-col items-center justify-center p-1 md:p-2 lg:p-3 rounded-lg shadow-lg cursor-pointer border border-transparent hover:border-indigo-500 transition-colors ${
                       flipped[index]
                         ? "bg-indigo-500 text-white"
                         : "bg-white dark:bg-gray-800"
@@ -148,13 +148,13 @@ export function TechStack() {
                     }}
                   >
                     {card.icon}
-                    <p className="mt-2 lg:mt-4 text-base md:text-lg lg:text-xl font-medium">
+                    <p className="mt-1 md:mt-2 lg:mt-3 text-xs md:text-sm lg:text-base font-medium">
                       {card.title}
                     </p>
                   </motion.div>
                   {/* Back Side */}
                   <motion.div
-                    className={`absolute inset-0 flex flex-col items-center justify-center p-2 lg:p-4 rounded-lg shadow-lg cursor-pointer border border-transparent hover:border-indigo-500 transition-colors ${
+                    className={`absolute inset-0 flex flex-col items-center justify-center p-1 md:p-2 lg:p-3 rounded-lg shadow-lg cursor-pointer border border-transparent hover:border-indigo-500 transition-colors ${
                       flipped[index]
                         ? "bg-white dark:bg-gray-800 text-black dark:text-white"
                         : "bg-indigo-500 text-white"
@@ -166,7 +166,7 @@ export function TechStack() {
                       transformStyle: "preserve-3d",
                     }}
                   >
-                    <p className="text-sm md:text-base lg:text-lg">
+                    <p className="text-xs md:text-sm lg:text-base">
                       {card.description}
                     </p>
                   </motion.div>

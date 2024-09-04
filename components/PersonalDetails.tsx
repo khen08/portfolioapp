@@ -26,8 +26,25 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import ShimmerButton from "./magicui/shimmer-button";
+import { Button } from "./ui/button";
+import { Textarea } from "./ui/textarea";
+import { Form, FormLabel } from "./ui/form";
+import { Input } from "./ui/input";
+import { useForm } from "react-hook-form";
+import { FormSchema } from "@/ValidationSchemas/contact";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export function PersonalDetails() {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      username: "",
+      email: "",
+      message: "",
+    },
+  });
+
   const profileData = {
     name: "Khen",
     description:
@@ -79,7 +96,7 @@ export function PersonalDetails() {
   }, [interests.length]);
 
   return (
-    <div className="p-6">
+    <div className="hidden lg:block p-6">
       <AnimatedWrapper animationType="fadeInUp">
         <div className="mb-8 text-zinc-500 text-justify">
           <TextEffect per="word">{profileData.description}</TextEffect>
@@ -141,7 +158,7 @@ export function PersonalDetails() {
         <p className="text-zinc-500 flex">
           <IconDownload />
           <a
-            href="/path-to-your-resume.pdf"
+            href="/resume/Louiskhen_Yagdulas_CV.pdf"
             download="Khen_Resume.pdf"
             className="text-zinc-500 font-bold hover:underline pl-1"
           >
@@ -156,7 +173,7 @@ export function PersonalDetails() {
           <DialogTrigger asChild>
             <div className="flex min-h-[16rem] items-start mt-4">
               <ShimmerButton className="shadow-2xl">
-                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-md">
+                <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
                   Contact Me!
                 </span>
               </ShimmerButton>
@@ -167,61 +184,64 @@ export function PersonalDetails() {
             <DialogDescription>
               Fill out the form below to send me an email.
             </DialogDescription>
-            <form action="https://formspree.io/f/manwkoja" method="POST">
-              <div className="my-4">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  required
-                />
-              </div>
-              <div className="my-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  required
-                />
-              </div>
-              <div className="my-4">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  required
-                ></textarea>
-              </div>
-              <div className="mt-4">
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-                >
-                  Send
-                </button>
-              </div>
-            </form>
+            <Form {...form}>
+              <form action="https://formspree.io/f/manwkoja" method="POST">
+                <div className="my-4">
+                  <FormLabel
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Name
+                  </FormLabel>
+                  <Input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    required
+                  />
+                </div>
+                <div className="my-4">
+                  <FormLabel
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Email
+                  </FormLabel>
+                  <Input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    required
+                  />
+                </div>
+                <div className="my-4">
+                  <FormLabel
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Message
+                  </FormLabel>
+                  <Textarea
+                    placeholder="Type your message here."
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    required
+                  />
+                </div>
+                <div className="mt-4">
+                  <Button
+                    type="submit"
+                    className="px-4 py-2 bg-primary text-white rounded"
+                  >
+                    Send
+                  </Button>
+                </div>
+              </form>
+            </Form>
           </DialogContent>
         </Dialog>
       </AnimatedWrapper>

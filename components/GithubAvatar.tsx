@@ -99,7 +99,7 @@ export function GithubAvatar() {
   }
 
   return (
-    <div className="p-6">
+    <div className="hidden lg:block p-6">
       <AnimatedWrapper animationType="fadeInUp">
         <Image
           src={profileData?.avatar_url || ""}
