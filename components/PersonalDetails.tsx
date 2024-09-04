@@ -36,7 +36,7 @@ export function PersonalDetails() {
 
   const details = {
     occupation: "Full-time Furparent!",
-    location: "Your Location",
+    location: "Cavite, Philippines",
     birthday: "August 2, 2002",
   };
 
