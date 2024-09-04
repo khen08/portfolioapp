@@ -31,7 +31,7 @@ export function AboutMe() {
           per="char"
           className="text-2xl md:text-5xl font-bold dark:text-white text-center"
         >
-          Hello! I'm Louiskhen Yagdulas
+          Hello! I&apos;m Louiskhen Yagdulas
         </TextEffect>
         <MaxWidthWrapper>
           <motion.div
@@ -51,8 +51,8 @@ export function AboutMe() {
               preset="slide"
               className="tracking-tight font-extralight text-base md:text-2xl dark:text-neutral-200 py-4 text-center leading-relaxed md:leading-snug"
             >
-              I'm a Computer Engineering student and web developer, passionate
-              about creating{" "}
+              I&apos;m a Computer Engineering student and web developer,
+              passionate about creating{" "}
               <Highlight
                 className="tracking-tight text-base md:text-2xl text-center leading-relaxed md:leading-snug"
                 initialColor="black"
