@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inconsolata } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const inconsolata = Inconsolata({ subsets: ["latin"], weight: ["300", "700"] });
 
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inconsolata.className}>{children}</body>
+      <body className={inconsolata.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
