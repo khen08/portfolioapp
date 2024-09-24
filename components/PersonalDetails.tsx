@@ -158,7 +158,7 @@ export function PersonalDetails() {
         <p className="text-zinc-500 flex">
           <IconDownload />
           <a
-            href="/resume/Louiskhen_Yagdulas_CV.pdf"
+            href="/resume/Louiskhen_Yagdulas_Resume.pdf"
             download="Khen_Resume.pdf"
             className="text-zinc-500 font-bold hover:underline pl-1"
           >
